@@ -1,19 +1,18 @@
 <script setup>
 import { usePage } from '@inertiajs/inertia-vue3';
-import { ref } from 'vue';
 
-const items = ref(usePage().props).value.items;
-console.log(items);
+const items = usePage().props.value.items; // Access the 'items' array directly (no need for ref() since Inertia.js makes it reactive)
+console.log('Items:', items);
 </script>
 
 <template>
-  <div class="p-6">
+  <div class="py-6">
     <h1 class="text-2xl font-bold mb-4">🎯 My Bucket List</h1>
-    <ul>
-      <li v-for="item in items" :key="item.id" class="list-none pl-6 mb-2">
-         {{ item.title }}
+    <ol>
+      <li v-for="(item, index) in items" :key="item.id" class="pl-6 mb-2">
+        {{ index + 1 }}. {{ item.title }} 
       </li>
-    </ul>
+    </ol>
   </div>
 </template>
 

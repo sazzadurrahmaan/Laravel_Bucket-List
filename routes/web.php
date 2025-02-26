@@ -16,7 +16,7 @@ use App\Models\BucketListItem;
 
 
 Route::get('/', function () {
-    return Inertia::render('BucketList/Index', [
+    return Inertia::render('Home', [
         'items' => BucketListItem::all(),
     ]);
 })->name('bucketlist.index');
