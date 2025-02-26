@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\BucketListItem;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,10 @@ use Inertia\Inertia;
 |
 */
 
+
 Route::get('/', function () {
-    return Inertia::render('Home');
-});
+    return Inertia::render('BucketList/Index', [
+        'items' => BucketListItem::all(),
+    ]);
+})->name('bucketlist.index');
+
