@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BucketListItem extends Model
 {
     use HasFactory;
+
     protected $fillable = ['title', 'description'];
 }
