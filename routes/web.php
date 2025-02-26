@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\BucketListItem;
+use App\Http\Controllers\BucketListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,13 @@ use App\Models\BucketListItem;
 */
 
 
-Route::get('/', function () {
-    return Inertia::render('Home', [
-        'items' => BucketListItem::all(),
-    ]);
-})->name('bucketlist.index');
+// Route::get('/', function () {
+//     return Inertia::render('Home', [
+//         'items' => BucketListItem::all(),
+//     ],);
+// })->name('bucketlist.index');
 
+// Route::resource('/bucket-list', BucketListController::class)->only(['index', 'store']);
+
+Route::get('/', [BucketListController::class, 'index'])->name('bucketlist.index');
+Route::post('/', [BucketListController::class, 'store']);
