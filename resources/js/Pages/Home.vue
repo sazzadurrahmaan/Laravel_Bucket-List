@@ -15,11 +15,11 @@ import { Inertia } from '@inertiajs/inertia';
 const items = ref(usePage().props.value.items);
 
 const fetchItems = () => {
-  Inertia.reload({ only: ['items'] }); // Reload only the 'items' prop
+  Inertia.reload({ only: ['items'] }); 
 };
 
 onMounted(() => {
-  fetchItems(); // Initial fetch
+  fetchItems(); 
 });
 </script>
 

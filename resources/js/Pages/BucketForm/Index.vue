@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
 import { useForm } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
@@ -21,11 +20,11 @@ const submitForm = () => {
   form.post('/', {
     onSuccess: () => {
      
-      Inertia.reload(); // Reload the current page to fetch updated items
+      window.location.reload() 
       form.reset();
     },
     onError: (errors) => {
-      console.log('Errors:', errors); // Debug any validation errors
+      console.log('Errors:', errors); 
     }
   });
 };
